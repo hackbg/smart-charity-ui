@@ -2,12 +2,10 @@
 @import '~bulma/sass/utilities/_all';
 
 // Set your colors
-$primary: #8c67ef;
+$primary: #48c774;
 $primary-light: findLightColor($primary);
 $primary-dark: findDarkColor($primary);
 $primary-invert: findColorInvert($primary);
-$twitter: #4099ff;
-$twitter-invert: findColorInvert($twitter);
 
 // Lists and maps
 $custom-colors: null !default;
@@ -72,10 +70,8 @@ $colors: mergeColorMaps(
   $custom-colors
 );
 
-// Links
-$link: $primary;
-$link-invert: $primary-invert;
-$link-focus-border: $primary;
+// Custom
+$desktop: 760px + (2 * $gap);
 
 // Import Bulma and Buefy styles
 @import '~bulma';

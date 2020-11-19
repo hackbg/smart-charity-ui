@@ -1,6 +1,21 @@
 <template>
   <div id="app">
-    <div id="nav"><router-link to="/">Home</router-link></div>
-    <router-view />
+    <app-header />
+    <section class="section">
+      <div class="container is-max-desktop">
+        <router-view />
+      </div>
+    </section>
   </div>
 </template>
+
+<script>
+import AppHeader from '@/components/Header.vue';
+
+export default {
+  name: 'App',
+  components: {
+    AppHeader,
+  },
+};
+</script>
