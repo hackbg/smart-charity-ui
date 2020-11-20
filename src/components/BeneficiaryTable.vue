@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 import UserAddress from '@/components/UserAddress.vue';
 
 export default {
@@ -23,23 +24,18 @@ export default {
   components: {
     UserAddress,
   },
-  data() {
-    return {
-      items: [
-        {
-          name: 'Kaufland',
-          reason: 'Food',
-          amount: 1000,
-          address: '0xf23fdsf...',
-        },
-        {
-          name: 'Building Co',
-          reason: 'Reconstruction',
-          amount: 3000,
-          address: '0xf9ds32d...',
-        },
-      ],
-    };
+  mounted() {
+    this.fetchItems();
+  },
+  computed: {
+    ...mapState({
+      items: state => state.campaign.data.beneficiaries,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchItems: 'fetchCampaignBeneficiaries',
+    }),
   },
 };
 </script>

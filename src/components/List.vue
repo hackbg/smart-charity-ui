@@ -6,13 +6,14 @@
       :id="item.id"
       :title="item.title"
       :description="item.description"
-      :amount="item.amount"
+      :amount="item.target"
       :completedPercent="item.completedPercent"
     />
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
 import Preview from '@/components/Preview.vue';
 
 export default {
@@ -20,27 +21,18 @@ export default {
   components: {
     Preview,
   },
-  data() {
-    return {
-      items: [
-        {
-          id: '1',
-          title: 'Test Campaign',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...',
-          amount: '1000',
-          completedPercent: '42',
-        },
-        {
-          id: '2',
-          title: 'Another Test Campaign',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...',
-          amount: '4000',
-          completedPercent: '20',
-        },
-      ],
-    };
+  created() {
+    this.fetchAll();
+  },
+  computed: {
+    ...mapState({
+      items: state => state.list.campaigns,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      fetchAll: 'fetchAllCampaigns',
+    }),
   },
 };
 </script>
