@@ -14,7 +14,15 @@
           About
         </b-navbar-item>
       </template>
-      <template slot="end"></template>
+      <template slot="end">
+        <b-navbar-item tag="div">
+          <div class="buttons">
+            <b-button size="is-light is-small" icon-left="plus" title="Start New Campaign">
+              Campaign
+            </b-button>
+          </div>
+        </b-navbar-item>
+      </template>
     </b-navbar>
   </header>
 </template>
