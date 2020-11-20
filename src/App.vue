@@ -1,17 +1,19 @@
 <template>
   <div id="app">
     <app-header />
-    <section class="section">
+    <section class="section main">
       <div class="container is-max-desktop">
         <app-loading isFullPage="false" />
         <router-view />
       </div>
     </section>
+    <app-footer />
   </div>
 </template>
 
 <script>
 import AppHeader from '@/components/Header.vue';
+import AppFooter from '@/components/Footer.vue';
 import AppLoading from '@/components/Loading.vue';
 
 export default {
@@ -19,6 +21,14 @@ export default {
   components: {
     AppHeader,
     AppLoading,
+    AppFooter,
   },
 };
 </script>
+
+<style>
+.main {
+  /* stretch content: viewport - header - footer */
+  min-height: calc(100vh - 3.25rem - 13rem);
+}
+</style>
