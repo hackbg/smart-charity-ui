@@ -4,8 +4,8 @@
       <div class="media-content">
         <div class="content">
           <div>
-            <a href="#"
-              ><strong>{{ title }}</strong></a
+            <router-link :to="route"
+              ><strong>{{ title }}</strong></router-link
             >
             <span class="pl-2"
               ><b-icon icon="coins" /><small>{{ amount }}</small></span
@@ -26,9 +26,14 @@ import ColoredProgress from '@/components/ColoredProgress.vue';
 
 export default {
   name: 'Preview',
-  props: ['title', 'amount', 'description', 'completedPercent'],
+  props: ['id', 'title', 'amount', 'description', 'completedPercent'],
   components: {
     ColoredProgress,
+  },
+  computed: {
+    route() {
+      return `campaign/${this.id}`;
+    },
   },
 };
 </script>
