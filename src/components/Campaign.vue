@@ -2,7 +2,7 @@
   <div class="box">
     <div class="is-flex is-justify-content-space-between">
       <h1 class="title">{{ data.title }}</h1>
-      <b-button type="is-info">
+      <b-button type="is-info" @click="promptDonateDialog">
         <b-icon icon="donate" />
         <strong>Donate</strong>
       </b-button>
@@ -79,7 +79,34 @@ export default {
   methods: {
     ...mapActions({
       fetchData: 'fetchCampaignData',
+      donate: 'donate',
     }),
+    promptDonateDialog() {
+      this.$buefy.dialog.prompt({
+        title: `Donate`,
+        message: 'How much would you like to contribute?',
+        inputAttrs: {
+          type: 'number',
+          placeholder: 'Type a number',
+          value: '0',
+          min: 1,
+        },
+        trapFocus: true,
+        onConfirm: this.onDonateConfirm,
+      });
+    },
+    onDonateConfirm(value) {
+      this.donate(value)
+        .then(() => this.$buefy.toast.open(`Your donation of ${value} was successfuly completed`))
+        .catch(e =>
+          this.$buefy.toast.open({
+            message: `Something went wrong... ${e.message}`,
+            type: 'is-danger',
+          })
+        );
+    },
+    // todo: promptClaimDialog
+    // todo: promptRefundDialog
   },
 };
 </script>

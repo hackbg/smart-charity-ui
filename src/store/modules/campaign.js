@@ -28,7 +28,12 @@ export default {
       commit('setLoading', false, { root: true });
       commit('setCampaignBeneficiaries', fakeBeneficiaries);
     },
-    // donate
+    async donate({ commit }, value) {
+      console.log('making a donation', value);
+      commit('setLoading', true, { root: true });
+      await new Promise(resolove => setTimeout(resolove, 500));
+      commit('setLoading', false, { root: true });
+    },
     // create
     // ...
   },
