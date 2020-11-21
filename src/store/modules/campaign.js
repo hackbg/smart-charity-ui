@@ -34,8 +34,13 @@ export default {
       await new Promise(resolove => setTimeout(resolove, 500));
       commit('setLoading', false, { root: true });
     },
-    // create
-    // ...
+    async create({ commit }, payload) {
+      console.log('creating a campaign', payload);
+      commit('setLoading', true, { root: true });
+      await new Promise(resolove => setTimeout(resolove, 500));
+      commit('setLoading', false, { root: true });
+      return '3'; // campaign id
+    },
   },
   getters: {
     // daysLeft: state => ...

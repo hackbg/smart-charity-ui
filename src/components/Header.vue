@@ -17,7 +17,12 @@
       <template slot="end">
         <b-navbar-item tag="div">
           <div class="buttons">
-            <b-button size="is-light is-small" icon-left="plus" title="Start New Campaign">
+            <b-button
+              size="is-light is-small"
+              icon-left="plus"
+              title="Start New Campaign"
+              @click="$router.push('/campaign/new')"
+            >
               Campaign
             </b-button>
           </div>

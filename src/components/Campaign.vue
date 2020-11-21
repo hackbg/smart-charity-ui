@@ -43,7 +43,7 @@
         <b-message v-if="!data.isFulfilled" type="is-info">
           Beneficiaries will be able to claim the amount of funds once the campaign is fulfilled.
         </b-message>
-        <beneficiary-table />
+        <beneficiary-table :items="data.beneficiaries" />
       </b-tab-item>
       <b-tab-item label="Author">
         <user-address :address="data.author" />
@@ -67,6 +67,7 @@ export default {
   },
   created() {
     this.fetchData(this.campaignId);
+    this.fetchBeneficiaries();
   },
   computed: {
     ...mapState({
@@ -79,6 +80,7 @@ export default {
   methods: {
     ...mapActions({
       fetchData: 'fetchCampaignData',
+      fetchBeneficiaries: 'fetchCampaignBeneficiaries',
       donate: 'donate',
     }),
     promptDonateDialog() {

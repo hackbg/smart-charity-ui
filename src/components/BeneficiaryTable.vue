@@ -16,26 +16,13 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
 import UserAddress from '@/components/UserAddress.vue';
 
 export default {
   name: 'BeneficiaryTable',
+  props: ['items'],
   components: {
     UserAddress,
-  },
-  mounted() {
-    this.fetchItems();
-  },
-  computed: {
-    ...mapState({
-      items: state => state.campaign.data.beneficiaries,
-    }),
-  },
-  methods: {
-    ...mapActions({
-      fetchItems: 'fetchCampaignBeneficiaries',
-    }),
   },
 };
 </script>
