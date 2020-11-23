@@ -9,7 +9,7 @@ export default {
   name: 'Loading',
   computed: {
     ...mapState({
-      isLoading: state => state.app.loading,
+      isLoading: state => state.loading,
     }),
   },
 };

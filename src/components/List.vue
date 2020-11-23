@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import Preview from '@/components/Preview.vue';
 
 export default {
@@ -25,8 +25,8 @@ export default {
     this.fetchAll();
   },
   computed: {
-    ...mapState({
-      items: state => state.list.campaigns,
+    ...mapGetters({
+      items: 'allCampaigns',
     }),
   },
   methods: {

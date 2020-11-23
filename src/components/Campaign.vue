@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions } from 'vuex';
 import BeneficiaryTable from '@/components/BeneficiaryTable.vue';
 import UserAddress from '@/components/UserAddress.vue';
 import ColoredProgress from '@/components/ColoredProgress.vue';
@@ -83,12 +83,12 @@ export default {
   },
   created() {
     this.fetchData(this.campaignId);
-    this.fetchBeneficiaries();
+    this.fetchBeneficiaries(this.campaignId);
   },
   computed: {
-    ...mapState({
-      data: state => state.campaign.data,
-    }),
+    data() {
+      return this.$store.getters.campaignData(this.campaignId) || {};
+    },
     campaignId() {
       return this.$route.params.id;
     },

@@ -1,24 +1,24 @@
 export const fakeCampaigns = [
   {
-    id: '1',
-    title: 'Test Campaign',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...',
-    target: '1000',
-    completedPercent: 42,
-  },
-  {
-    id: '2',
+    id: 'Ox456',
     title: 'Another Test Campaign',
     description:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...',
     target: '4000',
     completedPercent: 20,
   },
+  {
+    id: 'Ox123',
+    title: 'Test Campaign',
+    description:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco...',
+    target: '1000',
+    completedPercent: 42,
+  },
 ];
 
 export const fakeCampaignData = {
-  id: '2',
+  id: 'Ox456',
   title: 'Another Test Campaign',
   target: '4000',
   completedPercent: 20,
