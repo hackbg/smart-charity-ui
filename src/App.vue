@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <app-header />
+    <app-loading />
     <section class="section main">
       <div class="container is-max-desktop">
-        <app-loading isFullPage="false" />
         <router-view />
       </div>
     </section>
