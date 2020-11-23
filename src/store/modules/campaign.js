@@ -41,9 +41,19 @@ export default {
       commit('setLoading', false, { root: true });
       return '3'; // campaign id
     },
+    async refund({ commit }) {
+      console.log('claiming refund');
+      commit('setLoading', true, { root: true });
+      await new Promise(resolove => setTimeout(resolove, 500));
+      commit('setLoading', false, { root: true });
+    },
+    async claimFunds({ commit }) {
+      console.log('claiming funds');
+      commit('setLoading', true, { root: true });
+      await new Promise(resolove => setTimeout(resolove, 500));
+      commit('setLoading', false, { root: true });
+    },
   },
-  getters: {
-    // daysLeft: state => ...
-  },
+  getters: {},
   modules: {},
 };

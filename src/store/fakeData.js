@@ -23,6 +23,7 @@ export const fakeCampaignData = {
   target: '4000',
   completedPercent: 20,
   isFulfilled: false,
+  isActive: true,
   donors: 31,
   daysLeft: 10,
   author: '0x8c670074C32140CF0b770cf6F13Bd45497cF7cFC',

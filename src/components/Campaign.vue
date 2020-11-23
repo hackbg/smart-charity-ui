@@ -2,9 +2,25 @@
   <div class="box">
     <div class="is-flex is-justify-content-space-between">
       <h1 class="title">{{ data.title }}</h1>
-      <b-button type="is-info" @click="promptDonateDialog">
+      <b-button
+        v-if="data.isActive && !data.isFulfilled"
+        type="is-info"
+        @click="promptDonateDialog"
+      >
         <b-icon icon="donate" />
         <strong>Donate</strong>
+      </b-button>
+      <b-button
+        v-if="!data.isActive && !data.isFulfilled"
+        type="is-info"
+        @click="promptRefundDialog"
+      >
+        <b-icon icon="donate" />
+        <strong>Refund</strong>
+      </b-button>
+      <b-button v-if="data.isFulfilled" type="is-info" @click="promptClaimFundDialog">
+        <b-icon icon="funnel-dollar" />
+        <strong>Claim Funds</strong>
       </b-button>
     </div>
 
@@ -82,6 +98,8 @@ export default {
       fetchData: 'fetchCampaignData',
       fetchBeneficiaries: 'fetchCampaignBeneficiaries',
       donate: 'donate',
+      refund: 'refund',
+      claimFunds: 'claimFunds',
     }),
     promptDonateDialog() {
       this.$buefy.dialog.prompt({
@@ -107,8 +125,24 @@ export default {
           })
         );
     },
-    // todo: promptClaimDialog
-    // todo: promptRefundDialog
+    promptRefundDialog() {
+      this.$buefy.dialog.confirm({
+        message: 'Instructions and confirmation about refund?',
+        onConfirm: this.onRefundConfirm,
+      });
+    },
+    onRefundConfirm() {
+      this.refund().then(() => this.$buefy.toast.open('Refund completed'));
+    },
+    promptClaimFundsDialog() {
+      this.$buefy.dialog.confirm({
+        message: 'Instructions and confirmation about claiming funds?',
+        onConfirm: this.onClaimFundsConfirm,
+      });
+    },
+    onClaimFundsConfirm() {
+      this.refund().then(() => this.$buefy.toast.open('Funds transferred'));
+    },
   },
 };
 </script>
