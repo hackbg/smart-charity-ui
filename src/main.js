@@ -5,9 +5,14 @@ import router from './router';
 import store from './store';
 import './main.scss';
 
+import '@fortawesome/fontawesome-free/css/all.css';
+import '@fortawesome/fontawesome-free/css/fontawesome.css';
+
 Vue.config.productionTip = false;
 
-Vue.use(Buefy);
+Vue.use(Buefy, {
+  defaultIconPack: 'fas',
+});
 
 new Vue({
   router,
